@@ -1,4 +1,4 @@
-import friends from 'data/friends';
+
 import css from './FriendList.module.css';
 
 export const FriendList = () => {

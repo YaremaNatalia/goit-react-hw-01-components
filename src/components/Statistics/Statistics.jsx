@@ -1,34 +1,47 @@
-import data from 'data/data';
+import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
+ // функція generateRandomColor() генерування випадкового кольору для елементів li
 
-export const Statistics = () => {
+export const Statistics = ({ title, stats }) => {
+  function generateRandomColor() {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+    const color = `rgb(${red}, ${green}, ${blue})`;
+    return color;
+  }
+
   return (
     <section className={css.statistics}>
-      <h2 className={css.title}>Upload stats</h2>
-
+      {/* titlе рендериться за умовою, якщо він є  */}
+      {title && <h2 className={css.title}>{title}</h2>}
       <ul className={css.statList}>
-        <li className={css.item}>
-          <span className={css.label}>.docx</span>
-          <span className={css.percentage}>4%</span>
-        </li>
-        <li className={css.item}>
-          <span className={css.label}>.mp3</span>
-          <span className={css.percentage}>14%</span>
-        </li>
-        <li className={css.item}>
-          <span className={css.label}>.pdf</span>
-          <span className={css.percentage}>41%</span>
-        </li>
-        <li className={css.item}>
-          <span className={css.label}>.mp4</span>
-          <span className={css.percentage}>12%</span>
-        </li>
+        {stats.map(stat => (
+          <li
+            key={stat.id}
+            className={css.item}
+            style={{ backgroundColor: generateRandomColor() }}
+          >
+            <span className={css.label}>{stat.label}</span>
+            <span className={css.percentage}>{stat.percentage}%</span>
+          </li>
+        ))}
       </ul>
     </section>
   );
 };
 
-{
-  /* <Statistics title="Upload stats" stats={data} />
-<Statistics stats={data} /> */
-}
+
+
+
+
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
