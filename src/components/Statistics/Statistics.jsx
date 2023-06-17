@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
- // функція generateRandomColor() генерування випадкового кольору для елементів li
+// функція generateRandomColor() генерування випадкового кольору для елементів li
 
 export const Statistics = ({ title, stats }) => {
   function generateRandomColor() {
@@ -16,14 +16,14 @@ export const Statistics = ({ title, stats }) => {
       {/* titlе рендериться за умовою, якщо він є  */}
       {title && <h2 className={css.title}>{title}</h2>}
       <ul className={css.statList}>
-        {stats.map(stat => (
+        {stats.map(({ id, label, percentage }) => (
           <li
-            key={stat.id}
+            key={id}
             className={css.item}
             style={{ backgroundColor: generateRandomColor() }}
           >
-            <span className={css.label}>{stat.label}</span>
-            <span className={css.percentage}>{stat.percentage}%</span>
+            <span className={css.label}>{label}</span>
+            <span className={css.percentage}>{percentage}%</span>
           </li>
         ))}
       </ul>
@@ -31,14 +31,10 @@ export const Statistics = ({ title, stats }) => {
   );
 };
 
-
-
-
-
 Statistics.propTypes = {
   title: PropTypes.string,
   stats: PropTypes.arrayOf(
-    PropTypes.shape({
+    PropTypes.exact({
       id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       percentage: PropTypes.number.isRequired,

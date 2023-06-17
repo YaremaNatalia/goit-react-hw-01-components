@@ -1,25 +1,29 @@
 .transactionHistory {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: Arial, sans-serif;
+  width: 600px;
+  border-collapse: collapse; /* объединение границ таблицы */
+  border: 1px solid #a3a0a0; /* серые границы */
+  font-family: Roboto, sans-serif;
 }
 
 .transactionHistory th,
 .transactionHistory td {
   padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #a3a0a0; /* серые границы */
+  text-align: center;
+  text-transform: capitalize;
+  color: rgb(70, 68, 68);
 }
 
 .transactionHistory th {
-  background-color: #f2f2f2;
+  background-color: #caebf6;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .transactionHistory tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #dcdcdc;
 }
 
 .transactionHistory tbody tr:hover {
-  background-color: #e6e6e6;
+  background-color: #caebf6;
 }
