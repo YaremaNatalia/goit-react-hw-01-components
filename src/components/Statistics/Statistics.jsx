@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
 import { generateRandomColor } from 'utils'; //імпортуємо функцію з папки utils (автоматично підтягує з index.js в папці, де знаходяться реекспорти всіх функцій та констант (CTRL пробіл щоб викликати підказку в фігурних дужках імпортування))
+import { Children } from 'react';
 // функція generateRandomColor() генерування випадкового кольору для елементів li
 
 export const Statistics = ({ title, stats }) => {
@@ -37,3 +38,4 @@ Statistics.propTypes = {
     })
   ).isRequired,
 };
+// якщо використвуємo не всі поля обєкта що приходить з бекенду (пропси), тоді краще прописати PropTypes.shape

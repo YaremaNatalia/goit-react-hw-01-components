@@ -8,17 +8,15 @@
   background-color: #fff;
 }
 
-.statusOfline {
+.status {
   width: 15px;
   height: 15px;
   border-radius: 50%;
   background-color: #de3737;
 }
 
-.statusOnline {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
+
+.online {
   background-color: #6ce66c;
 }
 
