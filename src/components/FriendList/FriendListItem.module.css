@@ -15,10 +15,15 @@
   background-color: #de3737;
 }
 
-
 .online {
   background-color: #6ce66c;
 }
+/* 
+!можна використати метод COMPOSES для наслідування стилів іншого класу
+.statusOnline {
+  composes: status;
+  background-color: #6ce66c;
+} */
 
 .avatar {
   width: 60px;
